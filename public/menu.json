@@ -1,0 +1,79 @@
+{
+  "menu": [
+    {
+      "name": "Yetki Yönetim",
+      "path": "/yetki-yonetim",
+      "icon": "ApartmentOutlined",
+      "clientId": 1,
+      "id": 1,
+      "children": [
+        {
+          "name": "Yetki Işlemleri",
+          "path": "",
+          "icon": "ApartmentOutlined",
+          "clientId": 11,
+          "id": 11,
+          "children": [
+            {
+              "name": "Yetki Talebi",
+              "path": "/yetki-talebi",
+              "icon": "ApartmentOutlined",
+              "clientId": 111,
+              "id": 111,
+              "children": []
+            },
+            {
+              "name": "Yetki Sorgula",
+              "path": "/yetki-sorgula",
+              "icon": "ApartmentOutlined",
+              "clientId": 112,
+              "id": 112,
+              "children": []
+            },
+            {
+              "name": "Dış Birim Yetki Talebi",
+              "path": "/dis-birim-yetki-talebi",
+              "icon": "ApartmentOutlined",
+              "clientId": 113,
+              "id": 113,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Ayarlar",
+          "path": "/ayarlar",
+          "icon": "ApartmentOutlined",
+          "clientId": 12,
+          "id": 12,
+          "children": [
+            {
+              "name": "Formlar",
+              "path": "/kullanim-klavuzu",
+              "icon": "ApartmentOutlined",
+              "clientId": 113,
+              "id": 113,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kullanıcı Işlem Kontrolu",
+      "path": "/kik",
+      "icon": "ApartmentOutlined",
+      "clientId": 2,
+      "id": 2,
+      "children": []
+    },
+    {
+      "name": "Portal Yönetim",
+      "path": "/portal-yonetim",
+      "icon": "ApartmentOutlined",
+      "clientId": 3,
+      "id": 3,
+      "children": []
+    }
+  ]
+}
