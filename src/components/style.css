@@ -1,0 +1,159 @@
+button.bk-btn {
+  font-size: 14px;
+  height: 32px;
+  padding: 4px 15px;
+  margin: 0px;
+  border-radius: 6px;
+  outline: none;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  line-height: 1.5714285714285714;
+  color: rgba(0, 0, 0, 0.88);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    segoe ui,
+    Roboto,
+    helvetica neue,
+    Arial,
+    noto sans,
+    sans-serif,
+    apple color emoji,
+    segoe ui emoji,
+    segoe ui symbol,
+    noto color emoji;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button.bk-btn.default {
+  background-color: #fff !important;
+  border-color: #d9d9d9 !important;
+  color: rgba(0, 0, 0, 0.88) !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+button.bk-btn.default span {
+  display: inline-block;
+}
+
+button.bk-btn.default:focus-visible {
+  outline: 4px solid #91caff !important;
+  outline-offset: 1px !important;
+  transition:
+    outline-offset 0s,
+    outline 0s !important;
+}
+
+button.bk-btn.default:active {
+  color: #0958d9 !important;
+  border-color: #0958d9 !important;
+}
+
+button.bk-btn.default:hover {
+  color: #4096ff !important;
+  border-color: #4096ff !important;
+}
+
+button.bk-btn.primary {
+  color: #fff !important;
+  background-color: #1677ff !important;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1) !important;
+}
+
+button.bk-btn.primary:focus-visible {
+  outline: 4px solid #91caff !important;
+  outline-offset: 1px !important;
+  transition:
+    outline-offset 0s,
+    outline 0s !important;
+}
+
+button.bk-btn.primary:active {
+  color: #fff !important;
+  background-color: #0958d9 !important;
+}
+
+button.bk-btn.primary:hover {
+  color: #fff !important;
+  background-color: #4096ff !important;
+}
+
+button.bk-btn.primary span {
+  display: inline-block;
+}
+
+button.bk-btn.dashed {
+  background-color: #fff !important;
+  border-color: #d9d9d9 !important;
+  color: rgba(0, 0, 0, 0.88) !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
+  border-style: dashed !important;
+}
+
+button.bk-btn.dashed:focus-visible {
+  outline: 4px solid #91caff !important;
+  outline-offset: 1px !important;
+  transition:
+    outline-offset 0s,
+    outline 0s !important;
+}
+
+button.bk-btn.dashed:active {
+  color: #0958d9 !important;
+  border-color: #0958d9 !important;
+}
+
+button.bk-btn.dashed:hover {
+  color: #4096ff !important;
+  border-color: #4096ff !important;
+}
+
+button.bk-btn.dashed span {
+  display: inline-block;
+}
+
+button.bk-btn.circle {
+  min-width: 32px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  border-radius: 50%;
+}
+
+button.bk-btn.circle.large {
+  min-width: 40px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  border-radius: 50%;
+}
+
+button.bk-btn.large {
+  font-size: 16px;
+  height: 40px;
+  padding: 6.428571428571429px 15px;
+  border-radius: 8px;
+}
+
+button.bk-btn.circle.small {
+  min-width: 24px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  border-radius: 50%;
+}
+
+button.bk-btn.small {
+  font-size: 14px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 4px;
+}
