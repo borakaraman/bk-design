@@ -1,12 +1,16 @@
 import React, { ReactNode } from 'react'
 import './style.css'
 
+type ButtonType = 'primary' | 'default' | 'dashed'
+type ButtonShape = 'circle' | 'round'
+type ButtonSize = 'small' | 'large'
+
 interface Props {
   children?: ReactNode
   style?: object
-  type?: string
-  shape?: string
-  size?: string
+  type?: ButtonType
+  shape?: ButtonShape
+  size?: ButtonSize
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 

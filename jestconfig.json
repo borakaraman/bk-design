@@ -1,6 +1,7 @@
 {
     "transform": {
-        "^.+\\.(t|j)sx?$": "ts-jest"
+        "^.+\\.(t|j)sx?$": "ts-jest",
+        "^.+\\.css$": "jest-transform-stub"
     },
     "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [

@@ -8,9 +8,9 @@ root.render(
     <h1>Buttonlar</h1>
     <Button
       onClick={(e) => console.log(e)}
-      type='dashed'
+      type='primary'
       shape='circle'
-      size='large'
+      size='small'
       style={{ color: '#fff', backgroundColor: '#ccc' }}
     >
       Default Button
