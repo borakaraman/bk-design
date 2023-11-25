@@ -1,25 +1,43 @@
 {
-  "include": ["src"],
-  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["dom", "esnext"],
-    "importHelpers": true,
-    "declaration": true,
-    "isolatedModules": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "moduleResolution": "node",
-    "jsx": "react",
+    // This defines the version of JavaScript to compile the TypeScript code to.
+    // Setting "esnext" allows you to play with all the latest features, but if
+    // you need greater compatibility with older browsers, you can set this to another option.
+    "target": "esnext",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+
+    // You should set this option to "commonjs" to make sure everybody can use your package,
+    // whether they’re using TypeScript or JavaScript, are targeting Node.js or the Web.
+    "module": "commonjs",
+
+    // Activate strict compiler checks.
+    "strict": true,
+
+    // Do not compile when there are unused variables or imports.
+    "noUnusedLocals": true,
+
+    // Let TypeScript transpile JSX. Setting this can save you from setting up Babel.
+    // You can read more at https://www.typescriptlang.org/docs/handbook/jsx.html#basic-usage
+    "jsx": "react",
+
+    // Allow TypeScript to import JSON files directly.
+    "resolveJsonModule": true,
+
+    // Remove comments from generated JavaScript code.
+    "removeComments": true,
+
+    // Generate a source map from JS to TS. Useful for debugging.
+    // Don't forget to blacklist ./dist/**/*.js.map in the "files" key of package.json
+    "sourceMap": true,
+
+    // Generate a .d.ts file, for TypeScript users.
+    "declaration": true,
+
+    // Do not emit output files. Prevents us from accidentally building with this file
+    // instead of tsconfig.build.json.
+    "noEmit": true
+  },
+
+  // Include all TypeScript files, including those that shouldn't be built.
+  "include": ["src", "benchmark", "test"]
 }

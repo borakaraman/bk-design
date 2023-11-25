@@ -1,29 +1,29 @@
 {
   "name": "bk-design",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "description": "React UI Framwork",
-  "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "start": "parcel public/index.html",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run prettier && npm run lint",
-    "build": "npm run build:esm && npm run build:cjs && npm run copy-files:esm && npm run copy-files:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build": "npm run build:esm && npm run copy-files:esm",
+    "build:esm": "tsc --project tsconfig.build.json",
+    "copy-files:esm": "copyfiles -u 1 src/**/*.html src/**/*.css dist",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "copy-files:esm": "copyfiles -u 1 src/**/*.html src/**/*.css",
-    "copy-files:cjs": "copyfiles -u 1 src/**/*.html src/**/*.css dist/cjs",
     "test": "jest --config jestconfig.json",
-    "clean": "rimraf dist .parcel-cache"
+    "clean": "rimraf dist .parcel-cache",
+    "clean:node_modules": "rimraf node_modules"
   },
   "files": [
     "dist",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "!/dist/start.d.ts",
+    "!/dist/start.js",
+    "!/dist/start.js.map",
+    "!/dist/**/*.tsbuildinfo"
   ],
   "keywords": [
     "react",

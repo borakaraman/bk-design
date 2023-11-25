@@ -27,4 +27,4 @@ const Button = (_attr: Props) => {
   )
 }
 
-export default Button
+export { Button }
