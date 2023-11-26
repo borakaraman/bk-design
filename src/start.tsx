@@ -9,7 +9,6 @@ root.render(
     <Button
       onClick={(e) => console.log(e)}
       type='primary'
-      shape='circle'
       size='small'
       style={{ color: '#fff', backgroundColor: '#ccc' }}
     >

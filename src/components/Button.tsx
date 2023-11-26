@@ -2,27 +2,31 @@ import React, { ReactNode } from 'react'
 import './style.css'
 
 type ButtonType = 'primary' | 'default' | 'dashed'
-type ButtonShape = 'circle' | 'round'
-type ButtonSize = 'small' | 'large'
+type ButtonShape = 'circle' | 'round' | 'default'
+type ButtonSize = 'small' | 'middle' | 'large'
 
 interface Props {
   children?: ReactNode
-  style?: object
+  style?: React.CSSProperties
   type?: ButtonType
   shape?: ButtonShape
   size?: ButtonSize
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = (_attr: Props) => {
-  console.log(_attr)
+const Button = ({ children = "", style, type = "default", shape = "default", size = "middle", onClick }: Props) => {
+  console.log(children)
+  console.log(style)
+  console.log(shape)
+  console.log(size)
+  console.log(onClick)
   return (
     <button
-      className={'bk-btn ' + _attr.type + ' ' + _attr.shape + ' ' + _attr.size}
-      style={_attr.style}
-      onClick={_attr.onClick}
+      className={'bk-btn ' + type + ' ' + shape + ' ' + size}
+      style={style}
+      onClick={onClick}
     >
-      <span>{_attr.children}</span>
+      <span>{children}</span>
     </button>
   )
 }
