@@ -14,18 +14,14 @@ interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = ({ children = "", style, type = "default", shape = "default", size = "middle", onClick }: Props) => {
+const Button = ({ children = '', style, type = 'default', shape = 'default', size = 'middle', onClick }: Props) => {
   console.log(children)
   console.log(style)
   console.log(shape)
   console.log(size)
   console.log(onClick)
   return (
-    <button
-      className={'bk-btn ' + type + ' ' + shape + ' ' + size}
-      style={style}
-      onClick={onClick}
-    >
+    <button className={'bk-btn ' + type + ' ' + shape + ' ' + size} style={style} onClick={onClick}>
       <span>{children}</span>
     </button>
   )
