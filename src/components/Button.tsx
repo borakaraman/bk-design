@@ -15,13 +15,14 @@ interface Props {
 }
 
 const Button = ({ children = '', style, type = 'default', shape = 'default', size = 'middle', onClick }: Props) => {
-  console.log(children)
-  console.log(style)
-  console.log(shape)
-  console.log(size)
-  console.log(onClick)
+  const classNames = [
+    'bk-btn',
+    type ? `${type}-type` : 'default-type',
+    shape ? `${shape}-shape` : 'default-shape',
+    size ? `${size}-size` : 'default-size',
+  ].join(' ')
   return (
-    <button className={'bk-btn ' + type + ' ' + shape + ' ' + size} style={style} onClick={onClick}>
+    <button className={classNames} style={style} onClick={onClick}>
       <span>{children}</span>
     </button>
   )
