@@ -157,3 +157,37 @@ button.bk-btn {
   padding: 0 7px;
   border-radius: 4px;
 }
+
+.bk-icon {
+  line-height: 0;
+}
+
+.bkicon {
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bkicon svg {
+  display: inline-block;
+}
+
+@keyframes loadingCircle {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.anticon-spin {
+  animation: loadingCircle 1s infinite linear;
+}

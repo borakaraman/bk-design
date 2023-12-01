@@ -7,6 +7,8 @@ type ButtonSize = 'small' | 'middle' | 'large'
 
 interface Props {
   children?: ReactNode
+  icon?: ReactNode
+  className?: string
   style?: React.CSSProperties
   type?: ButtonType
   shape?: ButtonShape
@@ -14,15 +16,26 @@ interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = ({ children = '', style, type = 'default', shape = 'default', size = 'middle', onClick }: Props) => {
+const Button = ({
+  children,
+  icon,
+  className,
+  style,
+  type = 'default',
+  shape = 'default',
+  size = 'middle',
+  onClick,
+}: Props) => {
   const classNames = [
     'bk-btn',
+    className && className,
     type ? `${type}-type` : 'default-type',
     shape ? `${shape}-shape` : 'default-shape',
     size ? `${size}-size` : 'default-size',
   ].join(' ')
   return (
     <button className={classNames} style={style} onClick={onClick}>
+      {icon}
       <span>{children}</span>
     </button>
   )
