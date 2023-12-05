@@ -6,8 +6,8 @@ type Props = {
   type?: string
 }
 
-// <span className='ant-btn-icon ant-btn-loading-icon'>
-// <span role='img' aria-label='loading' className='anticon anticon-loading anticon-spin'>
+// <span className='bk-icon bk-loading-icon'>
+// <span role='img' aria-label='loading' className='bkicon bkicon-loading bkicon-spin'>
 //   <svg
 //     viewBox='0 0 1024 1024'
 //     focusable='false'

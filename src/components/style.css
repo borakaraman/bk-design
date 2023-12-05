@@ -162,8 +162,24 @@ button.bk-btn {
   line-height: 0;
 }
 
-.bkicon {
+.bkicon-icon-only > .bk-icon {
+  margin-inline-end: 8px;
+}
+
+:not(.circle-shape) > .bk-icon {
+  margin-inline-end: 8px;
+}
+
+.large-size .bkicon {
   font-size: 18px;
+}
+
+.small-size .bkicon {
+  font-size: 14px;
+}
+
+.bkicon {
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   color: inherit;
@@ -188,6 +204,15 @@ button.bk-btn {
   }
 }
 
-.anticon-spin {
+.bkicon-spin {
   animation: loadingCircle 1s infinite linear;
+}
+
+.bk-btn-loading {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.bk-btn-block {
+  width: 100%;
 }
