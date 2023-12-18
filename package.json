@@ -23,7 +23,8 @@
     "!/dist/start.d.ts",
     "!/dist/start.js",
     "!/dist/start.js.map",
-    "!/dist/**/*.tsbuildinfo"
+    "!/dist/**/*.tsbuildinfo",
+    "!/dist/test"
   ],
   "keywords": [
     "react",

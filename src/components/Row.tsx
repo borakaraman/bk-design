@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { CSSProperties, ReactNode } from 'react'
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const
 const RowJustify = ['start', 'end', 'center', 'space-around', 'space-between', 'space-evenly'] as const
@@ -7,7 +7,7 @@ type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 type ResponsiveLike<T> = {
   [key in Responsive]?: T
 }
-export type Gutter = number | undefined | Partial<Record<Responsive, number>>
+export type Gutter = number | Partial<Record<Responsive, number>>
 
 type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>
 type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>
@@ -23,21 +23,37 @@ type Props = {
   wrap?: boolean
 }
 
-const Row = ({ children, style, className, gutter, align, justify, prefixCls, wrap }: Props) => {
+const Row = ({ children, style, className, gutter, align, justify, prefixCls, wrap = true }: Props) => {
+  console.log(wrap)
+  let gutters: CSSProperties | undefined
+  if (typeof gutter === 'number') {
+    gutters = { marginLeft: -gutter / 2, marginRight: -gutter / 2 }
+  }
+  if (Array.isArray(gutter)) {
+    gutters = { marginLeft: -gutter[0] / 2, marginRight: -gutter[0] / 2, rowGap: Number(gutter[1]) }
+  }
+  if (typeof gutter === 'object' && !Array.isArray(gutter)) {
+    console.log('object')
+  }
+
+  const styles = {
+    ...style,
+    ...gutters,
+  }
   const classNames = [
     'bk-row',
     className && className,
-    gutter && `gutter-${gutter}`,
+    gutter && `gutter`,
     align && `align-${align}`,
     justify && `justify-${justify}`,
     prefixCls && `justify-${prefixCls}`,
-    wrap && `justify-${wrap}`,
+    wrap !== undefined && wrap !== true ? `justify-false` : undefined,
   ].join(' ')
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames.trim().replace(/\s+/g, ' ')} style={styles}>
       {children}
     </div>
   )
 }
 
-export default Row
+export { Row }
