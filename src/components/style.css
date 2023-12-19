@@ -267,6 +267,6 @@ button.bk-btn {
   align-items: flex-end;
 }
 
-.bk-row.justify-false {
+.bk-row.wrap-false {
   flex-wrap: nowrap;
 }

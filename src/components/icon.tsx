@@ -63,7 +63,7 @@ const Icon = ({ className, style, type }: Props) => {
   }
 
   return (
-    <span className={classNames} style={style}>
+    <span className={classNames.trim().replace(/\s+/g, ' ')} style={style}>
       {createIcon(type)}
     </span>
   )

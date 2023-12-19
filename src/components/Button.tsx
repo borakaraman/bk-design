@@ -59,7 +59,7 @@ const Button = ({
   )
 
   return (
-    <button className={classNames} style={style} onClick={onClick}>
+    <button className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick}>
       {loading ? loadingButton() : icon}
       <span>{children}</span>
     </button>

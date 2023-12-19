@@ -1,10 +1,15 @@
 import React from 'react'
 import { Row } from '../components/Row'
+import { Col } from '../components/Col'
+
 const row = () => {
   return (
     <React.StrictMode>
       <h1>Grid Layer</h1>
-      <Row gutter={50} style={{ backgroundColor: 'red' }} justify='space-between' align='top'>
+      <Row gutter={50}>
+        <Col>dsadas</Col>
+      </Row>
+      {/* <Row gutter={50} style={{ backgroundColor: 'red' }} justify='space-between' align='top'>
         row
       </Row>
       <Row align='bottom' wrap={false}>
@@ -15,15 +20,17 @@ const row = () => {
       </Row>
       <Row
         gutter={{
-          xs: 8,
-          sm: 16,
-          md: 24,
-          lg: 32,
+          xs: 100,
+          sm: 200,
+          md: 300,
+          lg: 400,
+          xl: 500,
+          xxl: 600,
         }}
         style={{ backgroundColor: 'orange' }}
       >
         row
-      </Row>
+      </Row> */}
     </React.StrictMode>
   )
 }
