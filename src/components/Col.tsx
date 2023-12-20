@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react'
 import RowContext from './RowContext'
 
-type LiteralUnion<T extends string> = T | (string & object)
+// type LiteralUnion<T extends string> = T | (string & object)
 
 type ColSpanType = number | string
 
-type FlexType = number | LiteralUnion<'none' | 'auto'>
+type FlexType = number | string
 
 interface ColSize {
   flex?: FlexType
@@ -66,7 +66,18 @@ const Col = ({
   prefixCls,
 }: ColProps) => {
   const { gutter, wrap } = React.useContext(RowContext)
-  console.log('gutter', gutter && gutter[0])
+  console.log(typeof flex)
+
+  const classNames = [
+    'bk-col',
+    className && className,
+    span && `bk-col-${span}`,
+    offset && `bk-col-offset-${offset}`,
+    push && `bk-col-push-${push}`,
+    pull && `bk-col-pull-${pull}`,
+    order && `bk-col-order-${order}`,
+    prefixCls && `justify-${prefixCls}`,
+  ].join(' ')
 
   const mergedStyle: React.CSSProperties = {}
 
@@ -74,6 +85,10 @@ const Col = ({
     const horizontalGutter = gutter[0] / 2
     mergedStyle.paddingLeft = horizontalGutter
     mergedStyle.paddingRight = horizontalGutter
+  }
+
+  if (Number(order) > 0) {
+    mergedStyle.order = order
   }
 
   if (flex) {
@@ -86,7 +101,7 @@ const Col = ({
     }
   }
   return (
-    <div className={className} style={{ ...mergedStyle, ...style }}>
+    <div className={classNames.trim().replace(/\s+/g, ' ')} style={{ ...mergedStyle, ...style }}>
       {children}
     </div>
   )
