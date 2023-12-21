@@ -7,8 +7,26 @@ const row = () => {
     <React.StrictMode>
       <h1>Grid Layer</h1>
       <Row>
-        <Col span={12}>col-12</Col>
-        <Col span={12}>col-12</Col>
+        <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+          Col
+        </Col>
+        <Col xs={20} sm={16} md={12} lg={8} xl={4}>
+          Col
+        </Col>
+        <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+          Col
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={{ span: 5, offset: 1, order: 1 }} lg={{ span: 6, offset: 2 }}>
+          Col
+        </Col>
+        <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+          Col
+        </Col>
+        <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+          Col
+        </Col>
       </Row>
     </React.StrictMode>
   )
