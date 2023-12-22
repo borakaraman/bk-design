@@ -70,8 +70,10 @@ const Col = ({
   const generateClassNames = (size: ColSize, suffix: string) => {
     let classes = ''
     for (const key in size) {
-      if (Object.prototype.hasOwnProperty.call(size, key) && key in size && size[key] !== undefined) {
+      if (Object.prototype.hasOwnProperty.call(size, key) && key !== 'span' && key in size && size[key] !== undefined) {
         classes += `bk-col-${suffix}-${key}-${size[key]} `
+      } else {
+        classes += `bk-col-${suffix}-${size[key]} `
       }
     }
     return classes
