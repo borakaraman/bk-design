@@ -1,6 +1,6 @@
 import React from 'react'
-import { Row } from '../components/Row'
-import { Col } from '../components/Col'
+import { Row } from '../components/Grid/Row'
+import { Col } from '../components/Grid/Col'
 
 const row = () => {
   const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from '../components/Button'
-import { Icon } from '../components/icon'
-import { Row } from '../components/Row'
-import { Col } from '../components/Col'
+import { Button } from '../components/Button/Button'
+import { Icon } from '../components/Icon/icon'
+import { Row } from '../components/Grid/Row'
+import { Col } from '../components/Grid/Col'
 
 const button = () => {
   return (
