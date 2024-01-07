@@ -1,9 +1,13 @@
 import React from 'react'
 
-type Props = {}
+export interface InputProps {
+  className?: string
+  bordered?: boolean
+}
 
-const input = (props: Props) => {
+const InternalInput = (props: InputProps) => {
+  console.log("InternalInput", props)
   return <div>input1</div>
 }
 
-export default input
+export default InternalInput
