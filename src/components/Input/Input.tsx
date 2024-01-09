@@ -6,7 +6,7 @@ export interface InputProps {
 }
 
 const InternalInput = (props: InputProps) => {
-  console.log("InternalInput", props)
+  console.log('InternalInput', props)
   return <div>input1</div>
 }
 
