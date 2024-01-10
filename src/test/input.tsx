@@ -14,6 +14,7 @@ const input = () => {
         addonAfter='http://'
         suffix={<Icon type='close' />}
         prefix={<Icon type='close' />}
+        allowClear
         onChange={(e) => console.log('onChange', e)}
         onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
       />

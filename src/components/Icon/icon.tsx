@@ -4,6 +4,7 @@ type Props = {
   className?: string
   style?: React.CSSProperties
   type?: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 // <span className='bk-icon bk-loading-icon'>
@@ -22,7 +23,7 @@ type Props = {
 // </span>
 // </span>
 
-const Icon = ({ className, style, type }: Props) => {
+const Icon = ({ className, style, type, onClick }: Props) => {
   const classNames = ['bk-icon', className && className].join(' ')
   const createIcon = (type: string | undefined) => {
     if (type === 'download') {
@@ -63,7 +64,7 @@ const Icon = ({ className, style, type }: Props) => {
   }
 
   return (
-    <span className={classNames.trim().replace(/\s+/g, ' ')} style={style}>
+    <span className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick}>
       {createIcon(type)}
     </span>
   )

@@ -63,7 +63,7 @@ const InternalInput = (props: InputProps) => {
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
               <span className='bk-input-affix-wrapper'>
-                {prefix !== undefined && <span className='bk-input-suffix'>{prefix}</span>}
+                {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
                   placeholder={placeholder}
                   className={classNames}
@@ -72,9 +72,10 @@ const InternalInput = (props: InputProps) => {
                   value={inputValue}
                   type={type !== undefined ? type : 'text'}
                 />
-                {allowClear ? (
-                  <span className='bk-input-suffix' onClick={() => setInputValue('')}>
-                    <Icon type='close' />
+                {allowClear && inputValue !== '' ? (
+                  <span className='bk-input-suffix' >
+                    <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
+                    {suffix}
                   </span>
                 ) : (
                   <>{suffix !== undefined && <span className='bk-input-suffix'>{suffix}</span>}</>
@@ -96,8 +97,8 @@ const InternalInput = (props: InputProps) => {
       ) : (
         <>
           {suffix !== undefined || prefix !== undefined || allowClear ? (
-            <span className='bk-input-affix-wrapper'>
-              {prefix !== undefined && <span className='bk-input-suffix'>{prefix}</span>}
+            <span className='bk-input-affix-wrapper inline'>
+              {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
               <input
                 placeholder={placeholder}
                 className={classNames}
@@ -106,9 +107,10 @@ const InternalInput = (props: InputProps) => {
                 value={inputValue}
                 type={type !== undefined ? type : 'text'}
               />
-              {allowClear ? (
-                <span className='bk-input-suffix' onClick={() => setInputValue('')}>
-                  <Icon type='close' />
+              {allowClear && inputValue !== '' ? (
+                <span className='bk-input-suffix' >
+                  <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
+                  {suffix}
                 </span>
               ) : (
                 <>{suffix !== undefined && <span className='bk-input-suffix'>{suffix}</span>}</>
