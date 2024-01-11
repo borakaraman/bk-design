@@ -38,6 +38,8 @@ const InternalInput = (props: InputProps) => {
     defaultValue,
     type,
     allowClear,
+    bordered = true,
+    disabled,
   } = props
   const [inputValue, setInputValue] = useState<string | undefined>(value || defaultValue || '')
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -54,26 +56,32 @@ const InternalInput = (props: InputProps) => {
       onChange(e)
     }
   }
-  const classNames = ['bk-input', className && className].join(' ')
+  const classNames = ['bk-input', className && className, disabled && 'bk-input-disabled'].join(' ')
+  const affixWrapper = [!bordered ? ' bk-input-borderless' : null].join(' ')
   return (
     <>
       {addonBefore !== undefined || addonAfter !== undefined ? (
-        <span className='bk-input-group-wrapper'>
+        <span className={`bk-input-group-wrapper${disabled ? 'bk-input-group-wrapper-disabled' : null}`}>
           <span className='bk-input-wrapper bk-input-group'>
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
-              <span className='bk-input-affix-wrapper'>
+              <span
+                className={`bk-input-affix-wrapper${
+                  affixWrapper + disabled ? ' bk-input-affix-wrapper-disabled' : null
+                }`}
+              >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
                   placeholder={placeholder}
-                  className={classNames}
+                  className={classNames.trim().replace(/\s+/g, ' ')}
                   onChange={handleOnChange}
                   onKeyDown={handleKeyDown}
                   value={inputValue}
                   type={type !== undefined ? type : 'text'}
+                  disabled={disabled ? true : false}
                 />
                 {allowClear && inputValue !== '' ? (
-                  <span className='bk-input-suffix' >
+                  <span className='bk-input-suffix'>
                     <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
                     {suffix}
                   </span>
@@ -84,11 +92,12 @@ const InternalInput = (props: InputProps) => {
             ) : (
               <input
                 placeholder={placeholder}
-                className={classNames}
+                className={classNames.trim().replace(/\s+/g, ' ')}
                 onChange={handleOnChange}
                 onKeyDown={handleKeyDown}
                 value={inputValue}
                 type={type !== undefined ? type : 'text'}
+                disabled={disabled ? true : false}
               />
             )}
             {addonAfter !== undefined && <span className='bk-input-group-addon'>{addonAfter}</span>}
@@ -97,18 +106,23 @@ const InternalInput = (props: InputProps) => {
       ) : (
         <>
           {suffix !== undefined || prefix !== undefined || allowClear ? (
-            <span className='bk-input-affix-wrapper inline'>
+            <span
+              className={`bk-input-affix-wrapper inline${
+                affixWrapper + disabled ? ' bk-input-affix-wrapper-disabled' : null
+              }`}
+            >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
               <input
                 placeholder={placeholder}
-                className={classNames}
+                className={classNames.trim().replace(/\s+/g, ' ')}
                 onChange={handleOnChange}
                 onKeyDown={handleKeyDown}
                 value={inputValue}
                 type={type !== undefined ? type : 'text'}
+                disabled={disabled ? true : false}
               />
               {allowClear && inputValue !== '' ? (
-                <span className='bk-input-suffix' >
+                <span className='bk-input-suffix'>
                   <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
                   {suffix}
                 </span>
@@ -119,11 +133,12 @@ const InternalInput = (props: InputProps) => {
           ) : (
             <input
               placeholder={placeholder}
-              className={classNames}
+              className={classNames.trim().replace(/\s+/g, ' ')}
               onChange={handleOnChange}
               onKeyDown={handleKeyDown}
               value={inputValue}
               type={type !== undefined ? type : 'text'}
+              disabled={disabled ? true : false}
             />
           )}
         </>

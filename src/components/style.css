@@ -173,11 +173,11 @@ button.bk-btn {
   line-height: 0;
 }
 
-.bkicon-icon-only>.bk-icon {
+.bkicon-icon-only > .bk-icon {
   margin-inline-end: 8px;
 }
 
-:not(.circle-shape)>.bk-icon {
+:not(.circle-shape) > .bk-icon {
   margin-inline-end: 8px;
 }
 
@@ -724,7 +724,6 @@ button.bk-btn {
 /* MEDİA COL */
 
 @media only screen and (max-width: 576) {
-
   /* COL */
   .bk-col-xs {
     padding: 16px 0;
@@ -1177,7 +1176,6 @@ button.bk-btn {
 }
 
 @media only screen and (min-width: 576) {
-
   /* COL */
   .bk-col-sm {
     padding: 16px 0;
@@ -1630,7 +1628,6 @@ button.bk-btn {
 }
 
 @media only screen and (min-width: 768) {
-
   /* COL */
   .bk-col-md {
     padding: 16px 0;
@@ -2083,7 +2080,6 @@ button.bk-btn {
 }
 
 @media only screen and (min-width: 992) {
-
   /* COL */
   .bk-col-lg {
     padding: 16px 0;
@@ -2536,7 +2532,6 @@ button.bk-btn {
 }
 
 @media only screen and (min-width: 1200) {
-
   /* COL */
   .bk-col-xl {
     padding: 16px 0;
@@ -2989,7 +2984,6 @@ button.bk-btn {
 }
 
 @media only screen and (min-width: 1600) {
-
   /* COL */
   .bk-col-xxl {
     padding: 16px 0;
@@ -3575,7 +3569,8 @@ input.bk-input:placeholder-shown {
   border-radius: 6px;
   transition: all 0.2s;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .bk-input-affix-wrapper.inline {
@@ -3586,7 +3581,7 @@ span.bk-input-affix-wrapper::before {
   display: inline-block;
   width: 0;
   visibility: hidden;
-  content: "\a0";
+  content: '\a0';
   box-sizing: border-box;
 }
 
@@ -3606,7 +3601,7 @@ span.bk-input-suffix {
   box-sizing: border-box;
 }
 
-.bk-input-affix-wrapper>input.bk-input {
+.bk-input-affix-wrapper > input.bk-input {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
   border-start-start-radius: 0;
@@ -3640,13 +3635,33 @@ span.bk-input-suffix {
   outline: 0;
 }
 
-.bk-input-affix-wrapper>input.bk-input:focus {
+.bk-input-affix-wrapper > input.bk-input:focus {
   box-shadow: none !important;
   z-index: 1;
   border-inline-end-width: 1px;
 }
 
-.bk-input-affix-wrapper>input.bk-input:hover {
+.bk-input-affix-wrapper > input.bk-input:hover {
   z-index: 1;
   border-inline-end-width: 1px;
+}
+
+.bk-input-borderless {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.bk-input-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: #d9d9d9;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.bk-input-disabled:hover {
+  border-color: #d9d9d9;
+  background-color: rgba(0, 0, 0, 0.04);
 }
