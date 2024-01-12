@@ -9,6 +9,7 @@ const input = () => {
     <React.StrictMode>
       <Input
         className='abc'
+        id='dasdas'
         placeholder='Basic usage'
         addonBefore='http://'
         addonAfter='http://'
@@ -18,16 +19,19 @@ const input = () => {
         // bordered={false}
         onChange={(e) => console.log('onChange', e)}
         onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
-        disabled
+        // disabled
+        maxLength={20}
       />
       <Input
         className='abc'
+        id='dasdas'
         placeholder='Basic usage'
         allowClear
         // bordered={false}
         onChange={(e) => console.log('onChange', e)}
         onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
-        disabled
+        // disabled
+        maxLength={10}
       />
       <TextArea autoSize={true} />
     </React.StrictMode>

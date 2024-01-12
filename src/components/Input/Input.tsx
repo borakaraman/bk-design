@@ -40,6 +40,8 @@ const InternalInput = (props: InputProps) => {
     allowClear,
     bordered = true,
     disabled,
+    id,
+    maxLength,
   } = props
   const [inputValue, setInputValue] = useState<string | undefined>(value || defaultValue || '')
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -61,17 +63,16 @@ const InternalInput = (props: InputProps) => {
   return (
     <>
       {addonBefore !== undefined || addonAfter !== undefined ? (
-        <span className={`bk-input-group-wrapper${disabled ? 'bk-input-group-wrapper-disabled' : null}`}>
+        <span className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}`}>
           <span className='bk-input-wrapper bk-input-group'>
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
               <span
-                className={`bk-input-affix-wrapper${
-                  affixWrapper + disabled ? ' bk-input-affix-wrapper-disabled' : null
-                }`}
+                className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}`}
               >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
+                  id={id}
                   placeholder={placeholder}
                   className={classNames.trim().replace(/\s+/g, ' ')}
                   onChange={handleOnChange}
@@ -79,6 +80,7 @@ const InternalInput = (props: InputProps) => {
                   value={inputValue}
                   type={type !== undefined ? type : 'text'}
                   disabled={disabled ? true : false}
+                  maxLength={maxLength}
                 />
                 {allowClear && inputValue !== '' ? (
                   <span className='bk-input-suffix'>
@@ -91,6 +93,7 @@ const InternalInput = (props: InputProps) => {
               </span>
             ) : (
               <input
+                id={id}
                 placeholder={placeholder}
                 className={classNames.trim().replace(/\s+/g, ' ')}
                 onChange={handleOnChange}
@@ -98,6 +101,7 @@ const InternalInput = (props: InputProps) => {
                 value={inputValue}
                 type={type !== undefined ? type : 'text'}
                 disabled={disabled ? true : false}
+                maxLength={maxLength}
               />
             )}
             {addonAfter !== undefined && <span className='bk-input-group-addon'>{addonAfter}</span>}
@@ -107,12 +111,13 @@ const InternalInput = (props: InputProps) => {
         <>
           {suffix !== undefined || prefix !== undefined || allowClear ? (
             <span
-              className={`bk-input-affix-wrapper inline${
-                affixWrapper + disabled ? ' bk-input-affix-wrapper-disabled' : null
+              className={`bk-input-affix-wrapper inline${affixWrapper}${
+                disabled ? ' bk-input-affix-wrapper-disabled' : ''
               }`}
             >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
               <input
+                id={id}
                 placeholder={placeholder}
                 className={classNames.trim().replace(/\s+/g, ' ')}
                 onChange={handleOnChange}
@@ -120,6 +125,7 @@ const InternalInput = (props: InputProps) => {
                 value={inputValue}
                 type={type !== undefined ? type : 'text'}
                 disabled={disabled ? true : false}
+                maxLength={maxLength}
               />
               {allowClear && inputValue !== '' ? (
                 <span className='bk-input-suffix'>
@@ -132,6 +138,7 @@ const InternalInput = (props: InputProps) => {
             </span>
           ) : (
             <input
+              id={id}
               placeholder={placeholder}
               className={classNames.trim().replace(/\s+/g, ' ')}
               onChange={handleOnChange}
@@ -139,6 +146,7 @@ const InternalInput = (props: InputProps) => {
               value={inputValue}
               type={type !== undefined ? type : 'text'}
               disabled={disabled ? true : false}
+              maxLength={maxLength}
             />
           )}
         </>
