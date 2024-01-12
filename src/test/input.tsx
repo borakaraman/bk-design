@@ -7,6 +7,7 @@ const { TextArea } = Input
 const input = () => {
   return (
     <React.StrictMode>
+      <Input className='abc' status='error' />
       <Input
         className='abc'
         id='dasdas'
@@ -21,6 +22,8 @@ const input = () => {
         onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
         // disabled
         maxLength={20}
+        showCount
+        status='warning'
       />
       <Input
         className='abc'
@@ -32,6 +35,8 @@ const input = () => {
         onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
         // disabled
         maxLength={10}
+        showCount
+        status='warning'
       />
       <TextArea autoSize={true} />
     </React.StrictMode>

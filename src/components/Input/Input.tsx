@@ -13,7 +13,7 @@ export interface InputProps {
   id?: string
   maxLength?: number
   prefix?: ReactNode
-  showCount?: boolean | { formatter?: (info?: { value?: string; count?: number; maxLength?: number }) => ReactNode }
+  showCount?: boolean
   status?: 'error' | 'warning'
   style?: React.CSSProperties
   size?: 'large' | 'middle' | 'small'
@@ -42,6 +42,8 @@ const InternalInput = (props: InputProps) => {
     disabled,
     id,
     maxLength,
+    showCount,
+    status,
   } = props
   const [inputValue, setInputValue] = useState<string | undefined>(value || defaultValue || '')
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -58,17 +60,28 @@ const InternalInput = (props: InputProps) => {
       onChange(e)
     }
   }
-  const classNames = ['bk-input', className && className, disabled && 'bk-input-disabled'].join(' ')
+  const classNames = [
+    'bk-input',
+    className && className,
+    disabled && 'bk-input-disabled',
+    status && `bk-input-status-${status}`,
+  ].join(' ')
   const affixWrapper = [!bordered ? ' bk-input-borderless' : null].join(' ')
   return (
     <>
       {addonBefore !== undefined || addonAfter !== undefined ? (
-        <span className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}`}>
+        <span
+          className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}${
+            status ? ` bk-input-group-wrapper-status-${status}` : ''
+          }`}
+        >
           <span className='bk-input-wrapper bk-input-group'>
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
               <span
-                className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}`}
+                className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}${
+                  status ? ` bk-input-affix-wrapper-status-${status}` : ''
+                }`}
               >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
@@ -84,11 +97,27 @@ const InternalInput = (props: InputProps) => {
                 />
                 {allowClear && inputValue !== '' ? (
                   <span className='bk-input-suffix'>
+                    {showCount && (
+                      <span className='bk-input-show-count-suffix bk-input-show-count-has-suffix'>
+                        {inputValue?.length} / {maxLength}
+                      </span>
+                    )}
                     <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
-                    {suffix}
+                    {suffix !== undefined && suffix}
                   </span>
                 ) : (
-                  <>{suffix !== undefined && <span className='bk-input-suffix'>{suffix}</span>}</>
+                  <>
+                    {suffix !== undefined || maxLength ? (
+                      <span className='bk-input-suffix'>
+                        {showCount && (
+                          <span className='bk-input-show-count-suffix bk-input-show-count-has-suffix'>
+                            {inputValue?.length} / {maxLength}
+                          </span>
+                        )}
+                        {suffix}
+                      </span>
+                    ) : null}
+                  </>
                 )}
               </span>
             ) : (
@@ -113,7 +142,7 @@ const InternalInput = (props: InputProps) => {
             <span
               className={`bk-input-affix-wrapper inline${affixWrapper}${
                 disabled ? ' bk-input-affix-wrapper-disabled' : ''
-              }`}
+              }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}`}
             >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
               <input
@@ -129,11 +158,27 @@ const InternalInput = (props: InputProps) => {
               />
               {allowClear && inputValue !== '' ? (
                 <span className='bk-input-suffix'>
+                  {showCount && (
+                    <span className='bk-input-show-count-suffix bk-input-show-count-has-suffix'>
+                      {inputValue?.length} / {maxLength}
+                    </span>
+                  )}
                   <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setInputValue('')} />
-                  {suffix}
+                  {suffix !== undefined && suffix}
                 </span>
               ) : (
-                <>{suffix !== undefined && <span className='bk-input-suffix'>{suffix}</span>}</>
+                <>
+                  {suffix !== undefined || maxLength ? (
+                    <span className='bk-input-suffix'>
+                      {showCount && (
+                        <span className='bk-input-show-count-suffix bk-input-show-count-has-suffix'>
+                          {inputValue?.length} / {maxLength}
+                        </span>
+                      )}
+                      {suffix !== undefined && suffix}
+                    </span>
+                  ) : null}
+                </>
               )}
             </span>
           ) : (

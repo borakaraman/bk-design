@@ -3702,3 +3702,73 @@ span.bk-input-suffix {
   cursor: not-allowed;
   opacity: 1;
 }
+
+.bk-input-show-count-suffix {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.bk-input-show-count-has-suffix {
+  margin-inline-end: 4px;
+}
+
+.bk-input-status-error {
+  border-color: #ff4d4f;
+}
+
+.bk-input-status-error:hover {
+  border-color: #ffa39e;
+}
+
+.bk-input-status-error:focus-within {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 2px rgba(255, 38, 5, 0.06);
+  outline: 0;
+}
+
+.bk-input-status-warning {
+  border-color: #faad14;
+}
+
+.bk-input-status-warning:hover {
+  border-color: #ffd666;
+}
+
+.bk-input-status-warning:focus-within {
+  border-color: #faad14;
+  box-shadow: 0 0 0 2px rgba(255, 215, 5, 0.1);
+  outline: 0;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-status-error {
+  border-color: #ff4d4f;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-status-warning {
+  border-color: #faad14;
+}
+
+.bk-input-group-wrapper-status-error .bk-input-group-addon {
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.bk-input-group-wrapper-status-warning .bk-input-group-addon {
+  color: #faad14;
+  border-color: #faad14;
+}
+
+.bk-input-affix-wrapper-status-error .bk-input-prefix {
+  color: #ff4d4f;
+}
+
+.bk-input-affix-wrapper-status-warning .bk-input-prefix {
+  color: #faad14;
+}
+
+.bk-input-affix-wrapper-status-error .bk-input-suffix {
+  color: #ff4d4f;
+}
+
+.bk-input-affix-wrapper-status-warning .bk-input-suffix {
+  color: #faad14;
+}
