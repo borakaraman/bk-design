@@ -45,6 +45,7 @@ const InternalInput = (props: InputProps) => {
     maxLength,
     showCount,
     status,
+    size,
   } = props
   const [inputValue, setInputValue] = useState<string | undefined>(value || defaultValue || '')
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -66,6 +67,7 @@ const InternalInput = (props: InputProps) => {
     className && className,
     disabled && 'bk-input-disabled',
     status && `bk-input-status-${status}`,
+    size === 'small' ? `ant-input-sm` : size === 'large' ? `ant-input-lg` : '',
   ].join(' ')
   const affixWrapper = [!bordered ? ' bk-input-borderless' : null].join(' ')
   return (
@@ -73,7 +75,7 @@ const InternalInput = (props: InputProps) => {
       {addonBefore !== undefined || addonAfter !== undefined ? (
         <span
           className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}${status ? ` bk-input-group-wrapper-status-${status}` : ''
-            }`}
+            }${size === 'small' ? ` bk-input-group-wrapper-sm` : size === 'large' ? ` bk-input-group-wrapper-lg` : ''}`}
           style={style}
         >
           <span className='bk-input-wrapper bk-input-group'>
@@ -81,7 +83,7 @@ const InternalInput = (props: InputProps) => {
             {suffix !== undefined || prefix !== undefined || allowClear ? (
               <span
                 className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}${status ? ` bk-input-affix-wrapper-status-${status}` : ''
-                  }`}
+                  }${size === 'small' ? ` bk-input-affix-wrapper-sm` : size === 'large' ? ` bk-input-affix-wrapper-lg` : ''}`}
               >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
@@ -141,7 +143,7 @@ const InternalInput = (props: InputProps) => {
           {suffix !== undefined || prefix !== undefined || allowClear ? (
             <span
               className={`bk-input-affix-wrapper inline${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''
-                }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}`}
+                }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}${size === 'small' ? ` bk-input-affix-wrapper-sm` : size === 'large' ? ` bk-input-affix-wrapper-lg` : ''}`}
               style={style}
             >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}

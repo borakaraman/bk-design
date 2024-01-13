@@ -7,37 +7,14 @@ const { TextArea } = Input
 const input = () => {
   return (
     <React.StrictMode>
-      <Input className='abc' status='error' />
-      <Input
-        className='abc'
-        id='dasdas'
-        placeholder='Basic usage'
-        addonBefore='http://'
-        addonAfter='http://'
-        suffix={<Icon type='close' />}
-        prefix={<Icon type='close' />}
-        allowClear
-        // bordered={false}
-        onChange={(e) => console.log('onChange', e)}
-        onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
-        // disabled
-        maxLength={20}
-        showCount
-        status='warning'
-      />
-      <Input
-        className='abc'
-        id='dasdas'
-        placeholder='Basic usage'
-        allowClear
-        // bordered={false}
-        onChange={(e) => console.log('onChange', e)}
-        onPressEnter={(e, a) => console.log('onPressEnter', e, a)}
-        // disabled
-        maxLength={10}
-        showCount
-        status='warning'
-      />
+      <Input size='large' />
+      <Input size='small' />
+      <Input size='large' suffix="dasd" />
+      <Input size='small' suffix="dasd" />
+      <Input size='large' addonAfter="dasd" addonBefore="dasd" />
+      <Input size='small' addonAfter="dasd" addonBefore="dasd" />
+      <Input size='small' addonAfter="dasd" addonBefore="dasd" suffix="dasd" />
+      <Input size='large' addonAfter="dasd" addonBefore="dasd" suffix="dasd" />
       <TextArea autoSize={true} />
     </React.StrictMode>
   )

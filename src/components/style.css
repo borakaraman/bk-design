@@ -3790,3 +3790,91 @@ span.bk-input-suffix {
 .bk-input-affix-wrapper-status-warning .bk-input-suffix {
   color: #faad14;
 }
+
+.ant-input-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+}
+
+.ant-input-sm {
+  padding: 0px 7px;
+  border-radius: 4px;
+}
+
+.bk-input-affix-wrapper.inline .ant-input-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+}
+
+.bk-input-affix-wrapper.inline .ant-input-sm {
+  padding: 0px 7px;
+  border-radius: 4px;
+}
+
+.bk-input-affix-wrapper .ant-input-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bk-input-affix-wrapper .ant-input-sm {
+  padding: 0px 7px;
+}
+
+.bk-input-affix-wrapper.inline.bk-input-affix-wrapper-lg .ant-input-lg {
+  padding: 0;
+  font-size: inherit;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.bk-input-affix-wrapper.inline.bk-input-affix-wrapper-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+}
+
+.bk-input-affix-wrapper.inline.bk-input-affix-wrapper-sm .ant-input-sm {
+  padding: 0;
+  font-size: inherit;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.bk-input-affix-wrapper.inline.bk-input-affix-wrapper-sm {
+  padding: 0px 7px;
+  border-radius: 4px;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-lg .ant-input-lg {
+  padding: 0;
+  font-size: inherit;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-sm .ant-input-sm {
+  padding: 0;
+  font-size: inherit;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.bk-input-affix-wrapper.bk-input-affix-wrapper-sm {
+  padding: 0px 7px;
+}
