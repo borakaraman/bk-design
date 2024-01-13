@@ -29,6 +29,7 @@ const InternalInput = (props: InputProps) => {
     onChange,
     onPressEnter,
     className,
+    style,
     placeholder,
     addonBefore,
     addonAfter,
@@ -71,17 +72,16 @@ const InternalInput = (props: InputProps) => {
     <>
       {addonBefore !== undefined || addonAfter !== undefined ? (
         <span
-          className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}${
-            status ? ` bk-input-group-wrapper-status-${status}` : ''
-          }`}
+          className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}${status ? ` bk-input-group-wrapper-status-${status}` : ''
+            }`}
+          style={style}
         >
           <span className='bk-input-wrapper bk-input-group'>
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
               <span
-                className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}${
-                  status ? ` bk-input-affix-wrapper-status-${status}` : ''
-                }`}
+                className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}${status ? ` bk-input-affix-wrapper-status-${status}` : ''
+                  }`}
               >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
                 <input
@@ -140,9 +140,9 @@ const InternalInput = (props: InputProps) => {
         <>
           {suffix !== undefined || prefix !== undefined || allowClear ? (
             <span
-              className={`bk-input-affix-wrapper inline${affixWrapper}${
-                disabled ? ' bk-input-affix-wrapper-disabled' : ''
-              }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}`}
+              className={`bk-input-affix-wrapper inline${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''
+                }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}`}
+              style={style}
             >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
               <input
@@ -192,6 +192,7 @@ const InternalInput = (props: InputProps) => {
               type={type !== undefined ? type : 'text'}
               disabled={disabled ? true : false}
               maxLength={maxLength}
+              style={style}
             />
           )}
         </>
