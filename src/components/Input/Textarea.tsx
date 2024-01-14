@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import { InputProps } from './Input'
 
-export interface TextAreaProps {
+export interface TextAreaProps extends InputProps {
+  children?: ReactNode
   autoSize?: boolean | object
   styles?: React.CSSProperties
 }
 
-const Textarea = (props: TextAreaProps) => {
-  console.log('Textarea', props)
-  return <div>Textarea</div>
+const Textarea = ({ className, children, placeholder }: TextAreaProps) => {
+  console.log('Textarea', className)
+  return <textarea className='bk-input' placeholder={placeholder}>{children}</textarea>
 }
 
 export default Textarea
