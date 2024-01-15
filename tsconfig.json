@@ -39,5 +39,6 @@
   },
 
   // Include all TypeScript files, including those that shouldn't be built.
-  "include": ["src", "benchmark", "test"]
+  "include": ["src", "benchmark", "test"],
+  "exclude": ["src/test/**"]
 }

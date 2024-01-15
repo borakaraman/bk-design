@@ -1,1 +1,6 @@
 export * from './components/Button/Button'
+export * from './components/Grid/Col'
+export * from './components/Grid/Row'
+export * from './components/Icon/icon'
+export * from './components/Input/index'
+import './components/style.css'
