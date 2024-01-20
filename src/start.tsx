@@ -8,8 +8,8 @@ import './components/style.css'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    {/* <Button />
-    <Row /> */}
-    <Input />
+    <Button />
+    {/* <Row />
+    <Input /> */}
   </React.StrictMode>,
 )

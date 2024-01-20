@@ -15,6 +15,7 @@ interface Props {
   shape?: ButtonShape
   size?: ButtonSize
   block?: boolean
+  disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
@@ -28,6 +29,7 @@ const Button = ({
   size = 'middle',
   loading,
   block,
+  disabled,
   onClick,
 }: Props) => {
   const classNames = [
@@ -39,6 +41,7 @@ const Button = ({
     children && 'bkicon-icon-only',
     loading && 'bk-btn-loading',
     block && 'bk-btn-block',
+    disabled && 'bk-btn-disabled',
   ].join(' ')
   const loadingButton = () => (
     <span className='bk-icon bk-loading-icon'>
@@ -59,7 +62,7 @@ const Button = ({
   )
 
   return (
-    <button className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick}>
+    <button className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick} disabled={disabled}>
       {loading ? loadingButton() : icon}
       <span>{children}</span>
     </button>

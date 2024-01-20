@@ -104,6 +104,14 @@ const button = () => {
               </Button>
             </Col>
           </Row>
+          <br />
+          <h2>Disabled</h2>
+          <Button type='primary' disabled>
+            Button disabled
+          </Button>
+          <Button onClick={(e) => console.log(e)} type='primary'>
+            Button Default
+          </Button>
         </Col>
       </Row>
     </React.StrictMode>
