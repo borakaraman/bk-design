@@ -86,6 +86,9 @@ const Row = ({ children, style, className, gutter, align, justify, prefixCls, wr
     let gutterValue0: number | undefined
     let gutterValue1: number | undefined
 
+    if (typeof gutter === 'number') {
+      gutterValue0 = gutter
+    }
     if (Array.isArray(gutter)) {
       if (typeof gutter[0] === 'number') {
         gutterValue0 = gutter[0]
@@ -93,12 +96,34 @@ const Row = ({ children, style, className, gutter, align, justify, prefixCls, wr
       if (typeof gutter[1] === 'number') {
         gutterValue1 = gutter[1]
       }
-    } else if (typeof gutter === 'number') {
-      gutterValue0 = gutter
+    }
+
+    if (typeof gutter === 'object' && !Array.isArray(gutter)) {
+      const myArray = Object.entries(gutter)
+      myArray.map(([key, value]) => {
+        if (screenWidth >= 1600 && key === 'xxl') {
+          gutterValue0 = value
+        }
+        if (screenWidth >= 1200 && key === 'xl') {
+          gutterValue0 = value
+        }
+        if (screenWidth >= 992 && key === 'lg') {
+          gutterValue0 = value
+        }
+        if (screenWidth >= 768 && key === 'md') {
+          gutterValue0 = value
+        }
+        if (screenWidth >= 576 && key === 'sm') {
+          gutterValue0 = value
+        }
+        if (screenWidth < 576 && key === 'xs') {
+          gutterValue0 = value
+        }
+      })
     }
 
     return { gutter: [Number(gutterValue0), Number(gutterValue1)], wrap }
-  }, [gutter, wrap])
+  }, [gutter, screenWidth, wrap])
 
   return (
     <RowContext.Provider value={rowContext}>
