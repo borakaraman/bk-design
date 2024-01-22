@@ -1,6 +1,6 @@
 {
   "name": "bk-design",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "React UI Framwork",
   "main": "dist/index.js",
   "scripts": {
