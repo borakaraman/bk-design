@@ -1,6 +1,7 @@
 import React, { CSSProperties, ReactNode, useEffect, useState } from 'react'
 import RowContext from './RowContext'
 import type { RowContextState } from './RowContext'
+import './row.css'
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const
 const RowJustify = ['start', 'end', 'center', 'space-around', 'space-between', 'space-evenly'] as const

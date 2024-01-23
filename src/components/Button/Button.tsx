@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import '../style.css'
+import './button.css'
 
 type ButtonType = 'primary' | 'default' | 'dashed'
 type ButtonShape = 'circle' | 'round' | 'default'

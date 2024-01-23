@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import RowContext from './RowContext'
+import './col.css'
 
 // type LiteralUnion<T extends string> = T | (string & object)
 
