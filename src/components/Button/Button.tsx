@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import './button.css'
+import { ButtonWrapper } from './ButtonStyles'
 
 type ButtonType = 'primary' | 'default' | 'dashed'
 type ButtonShape = 'circle' | 'round' | 'default'
@@ -33,12 +33,11 @@ const Button = ({
   onClick,
 }: Props) => {
   const classNames = [
-    'bk-btn',
     className && className,
     type ? `${type}-type` : 'default-type',
     shape ? `${shape}-shape` : 'default-shape',
     size ? `${size}-size` : 'default-size',
-    children && 'bkicon-icon-only',
+    children && icon && 'bkicon-icon-only',
     loading && 'bk-btn-loading',
     block && 'bk-btn-block',
     disabled && 'bk-btn-disabled',
@@ -62,10 +61,15 @@ const Button = ({
   )
 
   return (
-    <button className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick} disabled={disabled}>
+    <ButtonWrapper
+      className={classNames.trim().replace(/\s+/g, ' ')}
+      style={style}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {loading ? loadingButton() : icon}
       <span>{children}</span>
-    </button>
+    </ButtonWrapper>
   )
 }
 
