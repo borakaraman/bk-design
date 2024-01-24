@@ -1,5 +1,5 @@
 import React from 'react'
-import './icon.css'
+import { StyledIcon } from './iconStyles'
 
 type Props = {
   className?: string
@@ -65,9 +65,9 @@ const Icon = ({ className, style, type, onClick }: Props) => {
   }
 
   return (
-    <span className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick}>
+    <StyledIcon className={classNames.trim().replace(/\s+/g, ' ')} style={style} onClick={onClick}>
       {createIcon(type)}
-    </span>
+    </StyledIcon>
   )
 }
 

@@ -1,6 +1,7 @@
 import React, { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react'
 import { InputProps } from './Input'
 import { Icon } from '../Icon/icon'
+import { StyledTextarea, AffixWrapper } from './TextareaStyles'
 
 export interface AutoSizeType {
   minRows?: number
@@ -69,13 +70,13 @@ const Textarea = ({
 
   const classNames = ['bk-textarea', className && className].join(' ')
   return showCount || allowClear ? (
-    <span
+    <AffixWrapper
       className={`bk-textarea-affix-wrapper${showCount ? ' bk-textarea-show-count' : ''}${
         allowClear ? ' bk-textarea-allow-clear' : ''
       }`}
       style={{ ...mergedStyle, ...styles }}
     >
-      <textarea
+      <StyledTextarea
         className={classNames.trim().replace(/\s+/g, ' ')}
         placeholder={placeholder}
         ref={textareaRef}
@@ -85,16 +86,16 @@ const Textarea = ({
         value={textValue}
       >
         {children}
-      </textarea>
+      </StyledTextarea>
       {textValue?.length !== 0 && <Icon type='close' style={{ cursor: 'pointer' }} onClick={() => setTextValue('')} />}
       <span className='bk-textarea-suffix'>
         <span className='bk-textarea-data-count'>
           {maxLength ? `${textValue?.length} / ${maxLength}` : textValue?.length}
         </span>
       </span>
-    </span>
+    </AffixWrapper>
   ) : (
-    <textarea
+    <StyledTextarea
       className={classNames.trim().replace(/\s+/g, ' ')}
       placeholder={placeholder}
       ref={textareaRef}
@@ -105,7 +106,7 @@ const Textarea = ({
       value={textValue}
     >
       {children}
-    </textarea>
+    </StyledTextarea>
   )
 }
 

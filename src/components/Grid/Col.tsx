@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import RowContext from './RowContext'
-import './col.css'
+import { StyledCol } from './ColStyles'
 
 // type LiteralUnion<T extends string> = T | (string & object)
 
@@ -90,7 +90,6 @@ const Col = ({
     typeof xxl === 'object' ? generateClassNames(xxl, 'xxl') : xxl !== undefined ? `bk-col-xxl-${xxl} ` : ''
 
   const classNames = [
-    'bk-col',
     className && className,
     xsClasses,
     smClasses,
@@ -126,9 +125,9 @@ const Col = ({
     }
   }
   return (
-    <div className={classNames.trim().replace(/\s+/g, ' ')} style={{ ...mergedStyle, ...style }}>
+    <StyledCol className={classNames.trim().replace(/\s+/g, ' ')} style={{ ...mergedStyle, ...style }}>
       {children}
-    </div>
+    </StyledCol>
   )
 }
 

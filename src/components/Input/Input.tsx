@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from 'react'
 import { Icon } from '../Icon/icon'
+import { StyledInput, AffixWrapper, GroupWrapper } from './InputStyles'
 
 export interface InputProps {
   className?: string
@@ -69,11 +70,11 @@ const InternalInput = (props: InputProps) => {
     status && `bk-input-status-${status}`,
     size === 'small' ? `ant-input-sm` : size === 'large' ? `ant-input-lg` : '',
   ].join(' ')
-  const affixWrapper = [!bordered ? ' bk-input-borderless' : null].join(' ')
+  const affixWrapper = [!bordered ? ' bk-input-affix-wrapper-borderless' : null].join(' ')
   return (
     <>
       {addonBefore !== undefined || addonAfter !== undefined ? (
-        <span
+        <GroupWrapper
           className={`bk-input-group-wrapper${disabled ? ' bk-input-group-wrapper-disabled' : ''}${
             status ? ` bk-input-group-wrapper-status-${status}` : ''
           }${size === 'small' ? ` bk-input-group-wrapper-sm` : size === 'large' ? ` bk-input-group-wrapper-lg` : ''}`}
@@ -82,7 +83,7 @@ const InternalInput = (props: InputProps) => {
           <span className='bk-input-wrapper bk-input-group'>
             {addonBefore !== undefined && <span className='bk-input-group-addon'>{addonBefore}</span>}
             {suffix !== undefined || prefix !== undefined || allowClear ? (
-              <span
+              <AffixWrapper
                 className={`bk-input-affix-wrapper${affixWrapper}${disabled ? ' bk-input-affix-wrapper-disabled' : ''}${
                   status ? ` bk-input-affix-wrapper-status-${status}` : ''
                 }${
@@ -90,7 +91,7 @@ const InternalInput = (props: InputProps) => {
                 }`}
               >
                 {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
-                <input
+                <StyledInput
                   id={id}
                   placeholder={placeholder}
                   className={classNames.trim().replace(/\s+/g, ' ')}
@@ -125,9 +126,9 @@ const InternalInput = (props: InputProps) => {
                     ) : null}
                   </>
                 )}
-              </span>
+              </AffixWrapper>
             ) : (
-              <input
+              <StyledInput
                 id={id}
                 placeholder={placeholder}
                 className={classNames.trim().replace(/\s+/g, ' ')}
@@ -141,11 +142,11 @@ const InternalInput = (props: InputProps) => {
             )}
             {addonAfter !== undefined && <span className='bk-input-group-addon'>{addonAfter}</span>}
           </span>
-        </span>
+        </GroupWrapper>
       ) : (
         <>
           {suffix !== undefined || prefix !== undefined || allowClear ? (
-            <span
+            <AffixWrapper
               className={`bk-input-affix-wrapper inline${affixWrapper}${
                 disabled ? ' bk-input-affix-wrapper-disabled' : ''
               }${status ? ` bk-input-affix-wrapper-status-${status}` : ''}${
@@ -154,7 +155,7 @@ const InternalInput = (props: InputProps) => {
               style={style}
             >
               {prefix !== undefined && <span className='bk-input-prefix'>{prefix}</span>}
-              <input
+              <StyledInput
                 id={id}
                 placeholder={placeholder}
                 className={classNames.trim().replace(/\s+/g, ' ')}
@@ -189,9 +190,9 @@ const InternalInput = (props: InputProps) => {
                   ) : null}
                 </>
               )}
-            </span>
+            </AffixWrapper>
           ) : (
-            <input
+            <StyledInput
               id={id}
               placeholder={placeholder}
               className={classNames.trim().replace(/\s+/g, ' ')}

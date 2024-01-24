@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactNode, useEffect, useState } from 'react'
 import RowContext from './RowContext'
 import type { RowContextState } from './RowContext'
-import './row.css'
+import { StyledRow } from './RowStyles'
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const
 const RowJustify = ['start', 'end', 'center', 'space-around', 'space-between', 'space-evenly'] as const
@@ -128,9 +128,9 @@ const Row = ({ children, style, className, gutter, align, justify, prefixCls, wr
 
   return (
     <RowContext.Provider value={rowContext}>
-      <div className={classNames.trim().replace(/\s+/g, ' ')} style={styles}>
+      <StyledRow className={classNames.trim().replace(/\s+/g, ' ')} style={styles}>
         {children}
-      </div>
+      </StyledRow>
     </RowContext.Provider>
   )
 }
